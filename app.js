@@ -1,6 +1,7 @@
 // module imports
 var EXPRESS         = require('express');
 var PATH            = require('path');
+var COMPRESSION     = require('compression');
 var LOGGER          = require('morgan');
 var BODY_PARSER     = require('body-parser');
 
@@ -14,6 +15,8 @@ app.set('view engine', 'pug');
 
 // logger for app
 app.use(LOGGER('dev'));
+// compression of response gzip format
+app.use(COMPRESSION());
 app.use(BODY_PARSER.json());
 app.use(BODY_PARSER.urlencoded({ extended: false }));
 app.use(EXPRESS.static(PATH.join(__dirname, 'public')));
