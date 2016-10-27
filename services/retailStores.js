@@ -20,7 +20,6 @@ function RetailStores(conf){
 RetailStores.prototype.getStoresList = function(){
 
   var list = this._mongo.getCollection(this._conf.COLLECTIONS.RETAIL_STORE).find({},{"store_id": 1, "store_name": 1, "description": 1});
-
   return list;
 }
 
@@ -32,8 +31,8 @@ RetailStores.prototype.getStoresList = function(){
 RetailStores.prototype.getStoreDetails  = function(storeId){
 
   var details = this._mongo.getCollection(this._conf.COLLECTIONS.RETAIL_STORE).find({"store_id": storeId});
-
   return details;
 }
 
+// exporting the module
 module.exports  =  RetailStores;
